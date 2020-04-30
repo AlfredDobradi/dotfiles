@@ -103,6 +103,11 @@ source $ZSH/oh-my-zsh.sh
 
 alias vim=/usr/bin/nvim
 
+# FFF Configuration
+export FFF_HIDDEN=1
+
+export EDITOR=vim
+
 PATH="/home/alfred/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/alfred/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/alfred/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
