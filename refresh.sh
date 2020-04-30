@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p ./config
+mkdir -p ./.config
 mkdir -p ./Pictures
 
 cp -r ~/.config/i3 ./.config/
