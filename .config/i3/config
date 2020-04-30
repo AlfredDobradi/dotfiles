@@ -31,6 +31,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id picom &
 exec --no-startup-id feh --bg-scale ~/Pictures/as_1080.png
+exec --no-startup-id ~/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -107,9 +108,9 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: 🛠️"
-set $ws2 "2: 🦊"
-set $ws3 "3: 📟"
+set $ws1 "1:🛠️"
+set $ws2 "2:🦊"
+set $ws3 "3:📟"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -180,15 +181,16 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+#bar {
+#        status_command i3status
+#}
 
 hide_edge_borders both
 default_border pixel 1
 default_floating_border pixel 1
 gaps inner 30
 gaps top 40
+gaps bottom 40
 title_align center
 
 client.focused          #C60000 #770000 #EFEFEF #2e9ef4   #B60000

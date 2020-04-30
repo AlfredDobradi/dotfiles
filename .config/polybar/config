@@ -12,6 +12,7 @@ fixed-center = false
 background = ${colors.bg}
 font-0 = Hack:size=12;3
 font-1 = Material Icons:size=12;4
+font-2 = JoyPixels:scale=8;3
 height = 40
 module-margin-right=1
 module-margin-left=1
@@ -19,7 +20,7 @@ cursor-click = pointer
 
 [bar/brvy_top]
 inherit = bar/brvy
-modules-right = battery cpu memory date settings
+modules-right = battery cpu memory date alsa settings
 modules-left = term files browser
 tray-position = none
 border-bottom-size = 1
@@ -30,9 +31,12 @@ inherit = bar/brvy
 bottom = true
 overline-size = 1
 overline-color = ${colors.border}
+modules-center = i3
 tray-position = right
+tray-maxsize = 32
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
+underline-size = 3
 
 [module/cpu]
 type = internal/cpu
@@ -130,3 +134,101 @@ content = 
 content-padding = 1
 content-foreground = ${colors.fg}
 click-left = firefox &
+
+[module/alsa]
+type = internal/alsa
+
+; Soundcard to be used
+; Usually in the format hw:# where # is the card number
+; You can find the different card numbers in `/proc/asound/cards`
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+; Name of the master, speaker and headphone mixers
+; Use the following command to list available mixer controls:
+; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
+; If master, speaker or headphone-soundcard isn't the default, 
+; use `amixer -c # scontrols` instead where # is the number 
+; of the master, speaker or headphone soundcard respectively
+;
+; Default: Master
+master-mixer = Master
+
+; Optionally define speaker and headphone mixers
+; Default: none
+speaker-mixer = Speaker
+; Default: none
+headphone-mixer = Headphone
+
+; NOTE: This is required if headphone_mixer is defined
+; Use the following command to list available device controls
+; $ amixer controls | sed -r "/CARD/\!d; s/.*=([0-9]+).*name='([^']+)'.*/printf '%3.0f: %s\n' '\1' '\2'/e" | sort
+; You may also need to use `amixer -c # controls` as above for the mixer names
+; Default: none
+headphone-id = 9
+
+; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
+; Default: false
+mapped = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Only applies if <ramp-volume> is used
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted =  muted
+label-muted-foreground = #66
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 =  
+
+; If defined, it will replace <ramp-volume> when
+; headphones are plugged in to `headphone_control_numid`
+; If undefined, <ramp-volume> will be used for both
+; Only applies if <ramp-volume> is used
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+click-left = amixer set Master toggle
+scroll-up = amixer set Master 5%+
+scroll-down = amixer set Master 5%-
+
+[module/i3]
+type = internal/i3
+strip-wsnumbers = true
+index-sort = true
+enable-scroll = false
+
+label-focused = %name%
+label-focused-padding = 2
+label-focused-underline = ${colors.red}
+
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+label-visible = %name%
+label-visible-padding = 2
+
+label-urgent = %name%
+label-urgent-padding = 2
+label-urgent-background = ${colors.red}
