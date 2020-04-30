@@ -20,7 +20,7 @@ cursor-click = pointer
 
 [bar/brvy_top]
 inherit = bar/brvy
-modules-right = battery cpu memory date alsa settings
+modules-right = taskwarrior battery cpu memory date alsa settings
 modules-left = term files browser
 tray-position = none
 border-bottom-size = 1
@@ -232,3 +232,11 @@ label-visible-padding = 2
 label-urgent = %name%
 label-urgent-padding = 2
 label-urgent-background = ${colors.red}
+
+[module/taskwarrior]
+interval = 30
+type = custom/script
+exec = ~/.config/polybar/scripts/task_polybar.sh
+format =  <label>
+format-foreground = #FFF
+click-right = task "$((`cat /tmp/tw_polybar_id`))" done
