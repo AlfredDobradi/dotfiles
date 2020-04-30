@@ -1,0 +1,132 @@
+[colors]
+bg = #222
+fg = #efefef
+red = #700
+border = #700
+gray = #888
+
+[bar/brvy]
+override-redirect = true
+wm-restack = i3
+fixed-center = false
+background = ${colors.bg}
+font-0 = Hack:size=12;3
+font-1 = Material Icons:size=12;4
+height = 40
+module-margin-right=1
+module-margin-left=1
+cursor-click = pointer
+
+[bar/brvy_top]
+inherit = bar/brvy
+modules-right = battery cpu memory date settings
+modules-left = term files browser
+tray-position = none
+border-bottom-size = 1
+border-bottom-color = ${colors.red}
+
+[bar/brvy_bottom]
+inherit = bar/brvy
+bottom = true
+overline-size = 1
+overline-color = ${colors.border}
+tray-position = right
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+
+[module/battery]
+type = internal/battery
+full-at = 99
+time-format = %H:%M
+format-charging = <animation-charging> <label-charging>
+;label-charging = %percentage%% (%time%)
+label-charging = %percentage%%
+format-discharging = <ramp-capacity> <label-discharging>
+;label-discharging = %percentage%% (%time%)
+label-discharging = %percentage%%
+format-full = <label-full>
+
+format-full-prefix = " "
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-foreground   = ${colors.fg}
+bar-capacity-width = 10
+
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+
+animation-charging-framerate = 750
+
+[module/settings]
+type = custom/text
+content = 
+content-padding = 1
+content-background = ${colors.red}
+content-foreground = ${colors.fg}
+click-left = lxappearance &
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %A, %d %B %Y
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %Y-%m-%d%
+time-alt = %H:%M:%S
+
+format = <label>
+
+label =  %time%   %date%
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3
+format =  <label>
+
+[module/term]
+type = custom/text
+content = 
+content-padding = 1
+content-foreground = ${colors.fg}
+content-background = ${colors.red}
+click-left = lxterminal &
+
+[module/files]
+type = custom/text
+content = 
+content-padding = 1
+content-foreground = ${colors.fg}
+click-left = thunar &
+click-right = lxterminal -e fff
+
+[module/browser]
+type = custom/text
+content = 
+content-padding = 1
+content-foreground = ${colors.fg}
+click-left = firefox &
