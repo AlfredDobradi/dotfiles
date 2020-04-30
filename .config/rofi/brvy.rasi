@@ -1,11 +1,11 @@
 configuration {
   location: 1;
-  xoffset:  50;
-  yoffset:  50;
+  xoffset:  20;
+  yoffset:  60;
 }
 
 * {
-  background-color: rgba(40, 40, 40, 0.3);
+  background-color: rgba(40, 40, 40, 0.5);
   border-color: rgba(198, 0, 0, 1);
   text-color: #EFEFEF;
   spacing: 0;
