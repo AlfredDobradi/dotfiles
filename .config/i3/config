@@ -107,9 +107,9 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1 - 🛠️"
-set $ws2 "2 - 🦊"
-set $ws3 "3 - 📟"
+set $ws1 "1: 🛠️"
+set $ws2 "2: 🦊"
+set $ws3 "3: 📟"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -188,6 +188,7 @@ hide_edge_borders both
 default_border pixel 1
 default_floating_border pixel 1
 gaps inner 30
+gaps top 40
 title_align center
 
 client.focused          #C60000 #770000 #EFEFEF #2e9ef4   #B60000
