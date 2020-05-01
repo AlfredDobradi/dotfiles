@@ -21,7 +21,7 @@ cursor-click = pointer
 [bar/brvy_top]
 inherit = bar/brvy
 modules-right = taskwarrior battery cpu memory date alsa settings
-modules-left = term files browser
+modules-left = term files browser mpd
 tray-position = none
 border-bottom-size = 1
 border-bottom-color = ${colors.red}
@@ -240,3 +240,21 @@ exec = ~/.config/polybar/scripts/task_polybar.sh
 format =  <label>
 format-foreground = #FFF
 click-right = task "$((`cat /tmp/tw_polybar_id`))" done
+
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+format-online = <toggle> <label-song>
+label-offline =  mpd is not running
+
+icon-pause = 
+icon-play = 
