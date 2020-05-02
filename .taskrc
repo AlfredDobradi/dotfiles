@@ -31,3 +31,8 @@ include ~/.task/brvy.theme
 #include /usr/share/doc/task/rc/solarized-light-256.theme
 #include /usr/share/doc/task/rc/no-color.theme
 
+taskd.certificate=\/home\/alfred\/.task\/adobradi.cert.pem
+taskd.key=\/home\/alfred\/.task\/adobradi.key.pem
+taskd.ca=\/home\/alfred\/.task\/ca.cert.pem
+taskd.server=brvy.space:53589
+taskd.credentials=brvy.space\/adobradi\/019c5599-2d50-44ad-b80e-fa6dfd768566
