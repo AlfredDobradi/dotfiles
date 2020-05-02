@@ -7,7 +7,7 @@ echo "$most_urgent_id" > /tmp/tw_polybar_id
 
 output="$most_urgent_desc"
 if [ -n "$most_urgent_due" ];
-then output="$most_urgent_desc  $most_urgent_due";
+then output="[$most_urgent_id] $most_urgent_desc  $most_urgent_due";
 fi
 
 echo "$output" 
