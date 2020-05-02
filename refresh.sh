@@ -17,5 +17,6 @@ rm -rf ./.config/mpd/run/*
 rm -rf ./.config/mpd/mpdstate
 rm -rf ./.config/mpd/mpd.db
 rm -rf ./.config/mpd/sticker.sql
+rm -rf ./.config/mpd/playlists
 
 cp ~/Pictures/anarchism_w.png ./Pictures/anarchism_w.png
