@@ -3,6 +3,8 @@
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export TZ="Europe/Dublin"
+export NO_AT_BRIDGE=1
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/alfred/.oh-my-zsh"
@@ -102,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias vim=/usr/bin/nvim
+alias lxvit="/usr/bin/lxterminal -e 'source ~/.zshrc; vit'"
 
 # FFF Configuration
 export FFF_HIDDEN=1
