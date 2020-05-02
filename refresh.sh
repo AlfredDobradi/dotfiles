@@ -14,6 +14,7 @@ cp ~/.zshrc ./
 cp -r ~/.config/mpd ./.config
 rm -rf ./.config/mpd/logs/*
 rm -rf ./.config/mpd/run/*
+rm -rf ./.config/mpd/mpdstate
 rm -rf ./.config/mpd/mpd.db
 rm -rf ./.config/mpd/sticker.sql
 
