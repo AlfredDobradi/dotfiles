@@ -239,6 +239,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/task_polybar.sh
 format =  <label>
 format-foreground = #FFF
+click-left = lxterminal -e "source ~/.zshrc; vit"
 click-right = task "$((`cat /tmp/tw_polybar_id`))" done
 
 [module/mpd]
